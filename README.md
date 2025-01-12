@@ -7,6 +7,8 @@
 최단 시간동안 최대한 많은 제품을 생산해야 하는 공장 운영에 있어서 고장 예측은 중요한 과업입니다. 특히 공장 가동에 차질을 일으키는 부분 중에서 볼 베어링의 고장이 많은 부분을 차지하고 있기 때문에 산업 현장에서는 볼 베어링의 고장을 미리 예측하기 위한 방법을 마련하고 있습니다. 이러한 상황 가운데 머신러닝을 통한 RUL 예측은 데이터셋으로부터 볼베어링의 진동 정보를 뽑아내고 이를 머신러닝에 학습시켜 고장을 미리 예측하는 방식으로 정형화되어 있습니다. 매트랩에서는 풍력 발전기 데이터셋을 통해 RUL을 예측하는 전형적인 머신러닝 기법을 제시하고 있는데, 이에 대하여 저희 팀은 Modena and Reggio Emilia University의 논문에서 제시하는 Detectivity 기법을 통하여 RUL을 예측 및 그 결과를 기존 방식과 비교하여 더 나은 RUL 예측에 대한 가능성을 탐구하였습니다.
 
 <div align="center">
-  <img width="940" alt="3D_Schemetic" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/detectivity.jpg" /><br>
-  <p style="margin-top: 10px;">Fig 1. Overview of ROS Hamburger System</p>
+  <img width="940" alt="Detectivity" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/detectivity.jpg" /><br>
+  <p style="margin-top: 10px;">Fig 1. Detectivity</p>
 </div>
+
+Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를 조합하여 만든 새로운 파라미터입니다. 특히 볼 베어링의 고장 신호를 담아내기 위해 고안된 파라미터로써, 기존에 RUL 예측을 위한 학습 파라미터를 선정하는 과정이 생략되기 때문에 손쉽게 RUL 예측을 수행할 수 있다는 장점이 있습니다. Activiy는 신호의 에너지를, Movility는 신호의 변동성을, 그리고 Complexity는 신호의 예측 불가능성을 나타내는데 일반적으로 뇌파 분석에 사용되고 있습니다.
