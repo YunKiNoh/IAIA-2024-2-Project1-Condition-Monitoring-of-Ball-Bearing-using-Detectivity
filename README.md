@@ -1,0 +1,1 @@
+# IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Hjorth-s-parameters
