@@ -26,8 +26,14 @@ Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를
 ### 2.1. Download Dataset
 <div align="center">
   <img width="940" alt="Wind Turbine Dataset" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/dataset.jpg" /><br>
-  <p style="margin-top: 10px;">Fig 2. Wind Turbine Dataset</p>
+  <p style="margin-top: 10px;">Fig 3. Wind Turbine Dataset</p>
 </div>
-데이터 셋은 상단 데이터 링크를 통해서 다운로드 할 수 있습니다.
+데이터 셋을 해당 링크를 통해서 다운로드합니다. [link:https://github.com/mathworks/WindTurbineHighSpeedBearingPrognosis-Data]
+
+### 2.2. Data Processing
+<div align="center">
+  <img width="940" alt="vibration" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/vibration.jpg" /><br>
+  <p style="margin-top: 10px;">Fig 4. Vibration Singal</p>
+</div>
 
 
