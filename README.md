@@ -47,11 +47,11 @@ fs = 97656; % Hz
 
 해당 데이터는 풍력 발전기 터빈의 진동정보와 회전속도정보[tachometer]로 구성되어 있으며, 각 데이터들은 하루에 6초씩 총 50일동안 수집되었습니다. 샘플링 주파수는 97656Hz로써 매일 총 585,936개의 데이터가 수집된 것을 확인할 수 있습니다.
 
-• Hardware: 20-tooth pinion gea / 2MW 
-• Sampling time: 6s per day
-• Samplng period: 50 days
-• Sampling frequency: 97656Hz
-• Data number: 585,936 data of each 50 files
+- Hardware: 20-tooth pinion gea / 2MW
+- Sampling time: 6s per day
+- Samplng period: 50 days
+- Sampling frequency: 97656Hz
+- Data number: 585,936 data of each 50 files
 
 ### 2.2. Check Raw Data
 진동 데이터의 양상을 그래프를 그려서 확인합니다.
