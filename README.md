@@ -292,3 +292,17 @@ for currentDay = 1:totalDay
   % Pause 0.1 seconds to make the animation visible
   pause(0.1)
 end
+```
+
+<div align="center">
+  <img width="940" alt="RUL" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/RUL.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 12. RUL Result from Detectivity</p>
+</div>
+
+### 2.5. Evaluate RUL
+RUL 평가를 위해 매트랩에서 제공하는 α-λ plot 함수를 활용하였습니다. 해당 함수를 통해서 RUL 예측 결과의 정확도를 시작적으로 확인할 수 있습니다.
+
+<div align="center">
+  <img width="940" alt="alpha" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/alpha.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 13. α-λ Plot for RUL Evaluation</p>
+</div>
