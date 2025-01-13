@@ -20,8 +20,9 @@
 Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를 조합하여 만든 새로운 파라미터입니다. 특히 볼 베어링의 고장 신호를 담아내기 위해 고안된 파라미터로써, 기존에 RUL 예측을 위한 학습 파라미터를 선정하는 과정이 생략되기 때문에 손쉽게 RUL 예측을 수행할 수 있다는 장점이 있습니다. Activiy는 신호의 에너지를, Movility는 신호의 변동성을, 그리고 Complexity는 신호의 예측 불가능성을 나타내는데 일반적으로 뇌파 분석에 사용되고 있습니다. y의 경우 전처리 되지 않은 진동 데이터로써, 분산 및 미분과 같은 간단한 수학적 과정을 통해 세가지 매개변수를 계산할 수 있습니다. 이 세가지 매개변수를 데시벨화 하여 계산한 매개변수가 detectivity입니다. 해당 매개변수는 고장에 근접할 수록 증가하는 특성을 가지고 있습니다.
 
 ## 2. Process
-매트랩에서 제공하는 기본적인 RUL 예측 기법은 진동 데이터 셋을 통해서 시간 영역 및 주파수 영역 파라미터를 추출하여 진동 특성을 잘 담아내는 파라미터를 선정 및 머신러닝 학습으로 정리될 수 있습니다. 
-[Link: https://kr.mathworks.com/help/predmaint/ug/wind-turbine-high-speed-bearing-prognosis.html]. 해당 방식과 Detectivity 기법을 비교하기 위해서 풍력 발전 데이터셋을 다운로드하여 데이터 전처리 및 RUL 예측을 다음과 같이 진행하였습니다.
+매트랩에서 제공하는 기본적인 RUL 예측 기법은 풍력 발전기의 진동 데이터애서 시간 영역 및 주파수 영역 파라미터를 추출한 뒤에 진동 특성을 잘 담아내는 파라미터를 선정하고 이를 바탕으로 머신러닝을 학습하여 RUL 예측에 활용하는 방식입니다. 
+[Link: https://kr.mathworks.com/help/predmaint/ug/wind-turbine-high-speed-bearing-prognosis.html]. 
+해당 방식과 Detectivity 기법을 비교하기 위해서 풍력 발전 데이터셋을 다운로드하여 데이터 전처리 및 RUL 예측을 다음과 같이 진행하였습니다.
 
 ### 2.1. Download Dataset
 <div align="center">
