@@ -23,13 +23,27 @@ Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를
 ## 2. Process
 매트랩에서 제공하는 기본적인 RUL 예측 기법은 풍력 발전기의 진동 데이터애서 시간 영역 및 주파수 영역 파라미터를 추출한 뒤에 진동 특성을 잘 담아내는 파라미터를 선정하고 이를 바탕으로 머신러닝을 학습하여 RUL 예측에 활용하는 방식입니다. 해당 방식과 Detectivity 기법을 비교하기 위해서 풍력 발전 데이터셋을 다운로드하여 데이터 전처리 및 RUL 예측을 다음과 같이 진행하였습니다.
 
-### 2.1. Download Dataset
+### 2.1. Import Dataset
 <div align="center">
   <img width="940" alt="Wind Turbine Dataset" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/dataset.jpg" /><br>
   <p style="margin-top: 10px;">Figure 3. Wind Turbine Dataset</p>
 </div>
 
-데이터 셋을 해당 링크를 통해서 다운로드합니다. [link:https://github.com/mathworks/WindTurbineHighSpeedBearingPrognosis-Data]
+데이터 셋을 다음과 같이 불러옵니다.
+
+```
+clear all
+% Import WT dataset
+hsbearing = fileEnsembleDatastore('Full-Data', '.mat');
+timeUnit = 'day';
+hsbearing.DataVariables = ["vibration", "tach"];
+hsbearing.IndependentVariables = "Date";
+hsbearing.SelectedVariables = ["Date", "vibration", "tach"];
+hsbearing.ReadFcn = @helperReadData;
+hsbearing.WriteToMemberFcn = @helperWriteToHSBearing;
+tall(hsbearing); % Show Elements of Selected Variables. 
+fs = 97656; % Hz
+```
 
 ### 2.2. Data Processing
 <div align="center">
