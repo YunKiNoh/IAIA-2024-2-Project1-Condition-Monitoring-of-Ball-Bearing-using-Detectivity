@@ -46,6 +46,29 @@ fs = 97656; % Hz
 ```
 
 ### 2.2. Data Processing
+진동 데이터의 양상을 그래프를 그려서 확인합니다.
+```
+% Reset hsbearing
+reset(hsbearing);
+tstart = 0;
+% Create and center figure
+figure('Units', 'normalized', 'Position', [0.3, 0.3, 0.4, 0.6]); % Center the figure
+hold on;
+while hasdata(hsbearing)
+ data = read(hsbearing);
+ v = data.vibration{1};
+ t = tstart + (1:length(v)) / fs;
+ plot(t(1:10:end), v(1:10:end));
+ tstart = t(end);
+end
+hold off;
+% Labeling and formatting the plot
+xlabel('Time (s), 6 seconds per day, 50 days in total');
+ylabel('Acceleration (g)');
+title('Vibration Data Over Time');
+grid on;
+```
+
 <div align="center">
   <img width="940" alt="vibration" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/vibration.jpg" /><br>
   <p style="margin-top: 10px;">Figure 4. Vibration Singal</p>
