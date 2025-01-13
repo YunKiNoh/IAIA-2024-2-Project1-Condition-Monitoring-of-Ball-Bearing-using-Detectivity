@@ -42,7 +42,7 @@ fs = 97656; % Hz
 
 <div align="center">
   <img width="940" alt="Wind Turbine Dataset" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/dataset.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 3. Wind Turbine Dataset [2]</p>
+  <p style="margin-top: 10px;">Figure 3. Wind Turbine Dataset</p>
 </div>
 
 - Hardware: 20-tooth pinion gea / 2MW
@@ -79,7 +79,7 @@ grid on;
 
 <div align="center">
   <img width="940" alt="vibration" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/vibration.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 4. Vibration Singal</p>
+  <p style="margin-top: 10px;">Figure 4. Vibration Singal [2]</p>
 </div>
 
 ```
