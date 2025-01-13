@@ -337,3 +337,6 @@ title(['Probability within \alpha bound, \alpha = ' num2str(alpha*100) '%'])
 
 ## 3. Conclusion
 해당 레포지토리는 Detectivity Method에 대한 가이드라인을 제공하기 위한 용도로써 기존 매트랩 방식의 결과와 비교하는 과정은 생략하였습니다. 다만 매트랩의 방식에 더하여 논문을 바탕으로 또 다른 방식의 RUL 예측 기법을 구현 및 제시하였다는 점에서 의미를 지니고 있다고 평가하며, RUL 예측에 있어서 머신러닝 기법은 정확도가 크게 떨어진다는 점을 공통적으로 확인할 수 있었습니다.
+
+## Reference
+[1] MathWorks. (n.d.). Wind turbine high-speed bearing prognosis. Retrieved January 13, 2025, from https://kr.mathworks.com/help/predmaint/ug/wind-turbine-high-speed-bearing-prognosis.html
