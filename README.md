@@ -226,7 +226,7 @@ Detectivity를 Health Indicator(머신러닝 학습 데이터 또는 건강지�
 
 <div align="center">
   <img width="940" alt="EDM" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/EDM.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 11. Exponential Degradation Mode(EDM)</p>
+  <p style="margin-top: 10px;">Figure 11. Exponential Degradation Mode(EDM) [2]</p>
 </div>
 
 해당 모델을 학습하기 위하여 학습 데이터 셋을 구분하여 하고 모델을 정의합니다.
@@ -311,7 +311,7 @@ title('\alpha-\lambda Plot')
 
 <div align="center">
   <img width="940" alt="alpha" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/alpha.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 13. α-λ Plot for RUL Evaluation</p>
+  <p style="margin-top: 10px;">Figure 13. α-λ Plot for RUL Evaluation [2]</p>
 </div>
 
 그래프를 살펴보면 20%의 허용오차범위 내에서 RUL 예측이 성공한 영역은 초반 10일 이전의 시기와 40일 근처의 시기에 해당합니다. 이는 Probability 그래프를 통해 더욱 간단히 파악할 수 있습니다.
@@ -330,7 +330,7 @@ title(['Probability within \alpha bound, \alpha = ' num2str(alpha*100) '%'])
 
 <div align="center">
   <img width="940" alt="probability" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/probability.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 14. Probability Graph</p>
+  <p style="margin-top: 10px;">Figure 14. Probability Graph [2]</p>
 </div>
 
 해당 그래프를 살펴보면 Detectivity 방식은 고장 발생 지점인 20일에서는 RUL 예측에 실패했음을 확인할 수 있습니다. 하지만 진동 신호가 더욱 증가한 상태인 40일 근처의 시기에서는 그 정확도가 70%를 넘어섬을 또한 확인할 수 있습니다.
