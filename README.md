@@ -110,4 +110,9 @@ grid on;
 해당 데이터셋은 50일안에 고장이 발생한 경우인데, 진동 신호를 살펴보면 시간이 지날 수록 그 값이 증가함을 확인할 수 있습니다. 하지만 tach 신호의 경우 그 양상이 일정하게 유지되고 있기 때문에 고장 진단을 위한 데이터로써 진동 신호를 채택하였습니다.
 
 ### 2.3. Data Processing
-해당 진동 데이터는 총 50
+<div align="center">
+  <img width="940" alt="extract" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/extract.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 6. Extract Detectivity from Vibration Signal</p>
+</div>
+
+해당 진동 데이터는 50일 동안의 신호로써, 총 50개의 신호 파일이 있습니다.
