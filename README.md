@@ -115,4 +115,59 @@ grid on;
   <p style="margin-top: 10px;">Figure 6. Extract Detectivity from Vibration Signal</p>
 </div>
 
-해당 진동 데이터는 50일 동안의 신호로써, 총 50개의 신호 파일이 있습니다.
+Detectivity를 구하기 위해서는 기본적인 Hjorth의 파라미터들인 Activitiy, Mobility, 그리고 Complexitiy를 구해야 합니다. 다만 해당 값들은 신호의 변화 양상에 대한 정보를 담기 때문에 매일 6초동안 수집한 진동 신호들을 하나의 단위로 나누어서 각각 50개씩의 파라미터를 추출하였습니다. 그렇게 수집한 50개씩의 Activitiy, Mobility, Complexitiy들을 바탕으로 50개의 Detectivity를 다음과 같이 추출하였습니다.
+```
+% Update DataVariables to include detectivity
+hsbearing.DataVariables = [hsbearing.DataVariables; "detectivity"];
+hsbearing.SelectedVariables = "vibration";
+reset(hsbearing);
+
+% Total number of detectivity calculations
+num_cycles = 50;
+
+% Initialize an array to store 50 four parameter values
+activities = zeros(1, num_cycles);
+mobilities = zeros(1, num_cycles);
+complexities = zeros(1, num_cycles);
+detectivitiy = zeros(1, num_cycles);
+
+% Repeat 50 times to extract detectivity
+for cycle_index = 1:num_cycles
+  if ~hasdata(hsbearing)
+    reset(hsbearing); % If no more data, reset to read again
+  end
+ 
+ features = table;
+ 
+ % Extract 50 numbers of activity, mobility, and complexity
+  for j = 1:num_cycles
+    % Calculate activity
+    v = vibration_data(:,j);
+    activities(j) = var(v);
+
+    % Calculate mobility
+    first_derivative = diff(v);
+    mobilities(j) = sqrt(var(first_derivative) / activities(j));
+
+    % Calculate complexity
+    second_derivative = diff(first_derivative);
+    complexities(j) = sqrt(var(second_derivative) / var(first_derivative))/sqrt(var(first_derivative) / var(v));
+  end
+
+  % Reference values
+  A_ref = mean(activities);
+  M_ref = mean(mobilities);
+  C_ref = mean(complexities);
+
+  % Calculate dB values of each three parameters
+  activity_j_dB = 10 * log10(activities / A_ref);
+  mobility_j_dB = 10 * log10(mobilities / M_ref);
+  complexity_j_dB = 10 * log10(complexities / C_ref);
+ 
+  % Calculate detectivity
+  detectivity = activity_j_dB - mobility_j_dB + complexity_j_dB;
+end
+
+% Store all 50 detectivity values in the features table
+features.detectivity = detectivity
+```
