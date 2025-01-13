@@ -1,4 +1,10 @@
 # Project1: Condition Monitoring of Ball Bearing using Detectivity
+**Contents**: Project1 of IAIA(Industrial AI and Automation)
+
+**Author**: Yun-ki Noh 21800226, Si-on Seo 21800360, Ho-jin Jang 22100645
+
+**Date**: 2024.10.22
+
 본 레포지토리는 24-2 IAIA(Industrial AI & Automation)에서 수행한 첫 번째 팀프로젝트에 대한 가이드라인을 제공하기 위해서 작성되었습니다. 해당 팀프로젝트는 매트랩에서 제공하는 오픈 데이터 셋을 통해 RUL(Remaining Usefule Life)을 예측하는 머신러닝 기법을 다양하게 시도해보기 위해서 수행되었습니다. 특히 매트랩에서는 'Wind Turbine High Speed Bearing Prognosis' 데이터셋을 통해 RUL을 예측하는 기본적인 머신러닝 기법에 대한 가이드라인을 제공하고 있습니다. 저희 팀은 이러한 기본적인 머신러닝 기법과 함께 Detectivity 기법에 대한 논문을 서로 비교하며 RUL 예측에 대한 프로젝트를 진행하였습니다.
 
 <div align="center">
