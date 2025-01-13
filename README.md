@@ -198,3 +198,26 @@ featureTable = table2timetable(combinedTable)
   <img width="940" alt="timetable" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/timetable.jpg" /><br>
   <p style="margin-top: 10px;">Figure 9. Detectivity Timetable</p>
 </div>
+
+Detectivity의 그래프를 살펴보면 다소 위아래로 불안정하게 변동하는 모습을 보이지만 시간이 지날 수록 증가하는 양상을 보입니다. 급격한 변동을 줄이기 위해 smooth 필터를 적용합니다.
+
+```
+variableNames = featureTable.Properties.VariableNames;
+featureTableSmooth = varfun(@(x) movmean(x, [5 0]), featureTable);
+featureTableSmooth.Properties.VariableNames = variableNames;
+figure
+hold on
+plot(featureTable.Date, featureTable.Detectivity)
+plot(featureTableSmooth.Date, featureTableSmooth.Detectivity)
+hold off
+xlabel('Time')
+ylabel('Feature Value')
+legend('Before smoothing', 'After smoothing')
+title('Detectivity') 
+```
+
+<div align="center">
+  <img width="940" alt="smoothing" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/smoothing.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 10. Smoothing Detectivity</p>
+</div>
+
