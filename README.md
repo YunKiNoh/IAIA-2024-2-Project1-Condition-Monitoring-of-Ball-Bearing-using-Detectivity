@@ -137,7 +137,7 @@ for cycle_index = 1:num_cycles
     reset(hsbearing); % If no more data, reset to read again
   end
  
- features = table;
+  features = table;
  
   % Extract 50 numbers of activity, mobility, and complexity
   for j = 1:num_cycles
