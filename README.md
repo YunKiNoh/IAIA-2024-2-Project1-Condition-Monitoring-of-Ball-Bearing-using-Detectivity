@@ -229,6 +229,10 @@ Detectivity를 Health Indicator(머신러닝 학습 데이터 또는 건강지�
   <p style="margin-top: 10px;">Figure 11. Exponential Degradation Mode(EDM)</p>
 </div>
 
+\[
+h(t) = \phi + \theta \exp\left( \beta t + \epsilon - \frac{\sigma^2}{2} \right)
+\]
+
 해당 모델을 학습하기 위하여 학습 데이터 셋을 구분하여 하고 모델을 정의합니다.
 ```
 % Divide Detectivity dataset into train and test.
