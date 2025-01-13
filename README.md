@@ -24,11 +24,6 @@ Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를
 매트랩에서 제공하는 기본적인 RUL 예측 기법은 풍력 발전기의 진동 데이터애서 시간 영역 및 주파수 영역 파라미터를 추출한 뒤에 진동 특성을 잘 담아내는 파라미터를 선정하고 이를 바탕으로 머신러닝을 학습하여 RUL 예측에 활용하는 방식입니다. 해당 방식과 Detectivity 기법을 비교하기 위해서 풍력 발전 데이터셋을 다운로드하여 데이터 전처리 및 RUL 예측을 다음과 같이 진행하였습니다.
 
 ### 2.1. Import Dataset
-<div align="center">
-  <img width="940" alt="Wind Turbine Dataset" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/dataset.jpg" /><br>
-  <p style="margin-top: 10px;">Figure 3. Wind Turbine Dataset</p>
-</div>
-
 데이터 셋을 다음과 같이 불러옵니다.
 
 ```
@@ -45,7 +40,16 @@ tall(hsbearing); % Show Elements of Selected Variables.
 fs = 97656; % Hz
 ```
 
-### 2.2. Data Processing
+<div align="center">
+  <img width="940" alt="Wind Turbine Dataset" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/dataset.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 3. Wind Turbine Dataset</p>
+</div>
+
+해당 데이터는 풍력 발전기 터빈의 진동 신호와 회전속도인 tachometer[RPM단위] 신호로 구성되어 있으며, 각 데이터들은 하루에 6초씩 총 50일동안 수집되었습니다. 샘플링 주파수는 97656Hz로써 매일 총 585,936개의 데이터가 수집된 것을 확인할 수 있습니다.
+
+
+
+### 2.2. Check Raw Data
 진동 데이터의 양상을 그래프를 그려서 확인합니다.
 ```
 % Reset hsbearing
@@ -74,4 +78,5 @@ grid on;
   <p style="margin-top: 10px;">Figure 4. Vibration Singal</p>
 </div>
 
-
+### 2.3. Data Processing
+해당 진동 데이터는 총 50
