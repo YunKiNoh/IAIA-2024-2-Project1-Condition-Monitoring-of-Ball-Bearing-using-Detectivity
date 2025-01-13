@@ -301,8 +301,37 @@ end
 
 ### 2.5. Evaluate RUL
 RUL 평가를 위해 매트랩에서 제공하는 α-λ plot 함수를 활용하였습니다. 해당 함수를 통해서 RUL 예측 결과의 정확도를 시작적으로 확인할 수 있습니다.
+```
+alpha = 0.2;
+detectTime = mdl.SlopeDetectionInstant;
+prob = helperAlphaLambdaPlot(alpha, trueRULs, estRULs, CIRULs, ...
+ pdfRULs, detectTime, breakpoint, timeUnit);
+title('\alpha-\lambda Plot')
+```
 
 <div align="center">
   <img width="940" alt="alpha" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/alpha.jpg" /><br>
   <p style="margin-top: 10px;">Figure 13. α-λ Plot for RUL Evaluation</p>
 </div>
+
+그래프를 살펴보면 20%의 허용오차범위 내에서 RUL 예측이 성공한 영역은 초반 10일 이전의 시기와 40일 근처의 시기에 해당합니다. 이는 Probability 그래프를 통해 더욱 간단히 파악할 수 있습니다.
+```
+figure
+t = 1:totalDay;
+hold on
+plot(t, prob)
+plot([breakpoint breakpoint], [0 1], 'k-.')
+hold off
+xlabel(['Time (' timeUnit ')'])
+ylabel('Probability')
+legend('Probability of predicted RUL within \alpha bound', 'Train-Test Breakpoint')
+title(['Probability within \alpha bound, \alpha = ' num2str(alpha*100) '%'])
+```
+
+<div align="center">
+  <img width="940" alt="probability" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/probability.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 14. Probability Graph</p>
+</div>
+
+해당 그래프를 살펴보면 Detectivity 방식은 고장 발생 지점인 20일에서는 RUL 예측에 실패했음을 확인할 수 있습니다. 하지만 진동 신호가 더욱 증가함에 따라 RUL 예측의 정확성 또한 함께 증가함을 확인할 수 있습니다.
+
