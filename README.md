@@ -139,7 +139,7 @@ for cycle_index = 1:num_cycles
  
  features = table;
  
- % Extract 50 numbers of activity, mobility, and complexity
+  % Extract 50 numbers of activity, mobility, and complexity
   for j = 1:num_cycles
     % Calculate activity
     v = vibration_data(:,j);
