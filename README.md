@@ -333,5 +333,5 @@ title(['Probability within \alpha bound, \alpha = ' num2str(alpha*100) '%'])
   <p style="margin-top: 10px;">Figure 14. Probability Graph</p>
 </div>
 
-해당 그래프를 살펴보면 Detectivity 방식은 고장 발생 지점인 20일에서는 RUL 예측에 실패했음을 확인할 수 있습니다. 하지만 진동 신호가 더욱 증가함에 따라 RUL 예측의 정확성 또한 함께 증가함을 확인할 수 있습니다.
+해당 그래프를 살펴보면 Detectivity 방식은 고장 발생 지점인 20일에서는 RUL 예측에 실패했음을 확인할 수 있습니다. 하지만 진동 신호가 더욱 증가한 상태인 40일 근처의 시기에서는 그 정확도가 70%를 넘어섬을 또한 확인할 수 있습니다.
 
