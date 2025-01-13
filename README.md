@@ -221,3 +221,74 @@ title('Detectivity')
   <p style="margin-top: 10px;">Figure 10. Smoothing Detectivity</p>
 </div>
 
+### 2.4. Predict RUL(Remain Useful Life)
+Detectivity를 Health Indicator(머신러닝 학습 데이터 또는 건강지표데이터)로 활용하기 위해 Exponential Degradation Mode(EDM, 지수열화모)을 활용하였습니다. 해당 모델은 매트랩에서 제공하는 방식을 차용하였습니다.
+
+<div align="center">
+  <img width="940" alt="EDM" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/EDM.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 11. Exponential Degradation Mode(EDM)</p>
+</div>
+
+해당 모델을 학습하기 위하여 학습 데이터 셋을 구분하여 하고 모델을 정의합니다.
+```
+% Divide Detectivity dataset into train and test.
+breaktime = datetime(2013, 3, 27);
+breakpoint = find(featureTableSmooth.Date < breaktime, 1, 'last');
+trainData = featureTableSmooth(1:breakpoint, :);
+
+% healthIndicator of detectivity
+healthIndicator = featureTableSmooth{:,:};
+healthIndicator = healthIndicator - healthIndicator(1);
+% Threshold for failure
+threshold = healthIndicator(end);
+
+% Fitting model
+mdl = exponentialDegradationModel(...
+ 'Theta', 1, ...
+ 'ThetaVariance', 1e6, ...
+ 'Beta', 1, ...
+ 'BetaVariance', 1e6, ...
+ 'Phi', -1, ...
+ 'NoiseVariance', (0.1*threshold/(threshold + 1))^2, ...
+ 'SlopeDetectionLevel', 0.05);
+```
+
+그러고 난 다음에 RUL 예측을 진행합니다.
+```
+% Detectivity
+% Keep records at each iteration
+totalDay = length(healthIndicator) - 1;
+estRULs = zeros(totalDay, 1);
+trueRULs = zeros(totalDay, 1);
+CIRULs = zeros(totalDay, 2);
+pdfRULs = cell(totalDay, 1);
+
+% Create figures and axes for plot updating
+figure
+ax1 = subplot(2, 1, 1);
+ax2 = subplot(2, 1, 2);
+for currentDay = 1:totalDay
+
+  % Update model parameter posterior distribution
+  update(mdl, [currentDay healthIndicator(currentDay,:)])
+
+  % Predict Remaining Useful Life
+  [estRUL, CIRUL, pdfRUL] = predictRUL(mdl, ...
+                                        [currentDay healthIndicator(currentDay)], 
+...
+                                        threshold);
+  trueRUL = totalDay - currentDay + 1;
+
+  % Updating RUL distribution plot
+  helperPlotTrend(ax1, currentDay, healthIndicator, mdl, threshold, timeUnit);
+  helperPlotRUL(ax2, trueRUL, estRUL, CIRUL, pdfRUL, timeUnit)
+
+  % Keep prediction results
+  estRULs(currentDay) = estRUL;
+  trueRULs(currentDay) = trueRUL;
+  CIRULs(currentDay, :) = CIRUL;
+  pdfRULs{currentDay} = pdfRUL;
+
+  % Pause 0.1 seconds to make the animation visible
+  pause(0.1)
+end
