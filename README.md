@@ -171,3 +171,22 @@ end
 % Store all 50 detectivity values in the features table
 features.detectivity = detectivity
 ```
+그러고 나서 매트랩에서 제공하는 RUL 예측 평가 함수를 사용하기 위해 Detectivity 정보와 Date 정보를 다음과 같이 결합합니다.
+```
+% Write the derived features to the corresponding file in hsbearing
+data = read(hsbearing);
+writeToLastMemberRead(hsbearing, features);
+% Select the "Date" variable from hsbearing
+hsbearing.SelectedVariables = ["Date"];
+reset(hsbearing);
+% Gather the date data
+dateTable = gather(tall(hsbearing));
+% Create a table combining Date and detectivity
+combinedTable = table(dateTable.Date, features.detectivity', 'VariableNames', 
+{'Date', 'Detectivity'});
+featureTable = table2timetable(combinedTable)
+```
+<div align="center">
+  <img width="940" alt="table" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/table.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 7. Detectivity Time Table</p>
+</div>
