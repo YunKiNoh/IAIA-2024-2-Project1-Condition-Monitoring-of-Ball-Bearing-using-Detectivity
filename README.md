@@ -21,7 +21,9 @@ Detectivity는 Hjorth's parameter인 Activity, Mobility, 그리고 Complextiy를
 
 ## 2. Process
 매트랩에서 제공하는 기본적인 RUL 예측 기법은 풍력 발전기의 진동 데이터애서 시간 영역 및 주파수 영역 파라미터를 추출한 뒤에 진동 특성을 잘 담아내는 파라미터를 선정하고 이를 바탕으로 머신러닝을 학습하여 RUL 예측에 활용하는 방식입니다. 
+
 [Link: https://kr.mathworks.com/help/predmaint/ug/wind-turbine-high-speed-bearing-prognosis.html]. 
+
 해당 방식과 Detectivity 기법을 비교하기 위해서 풍력 발전 데이터셋을 다운로드하여 데이터 전처리 및 RUL 예측을 다음과 같이 진행하였습니다.
 
 ### 2.1. Download Dataset
