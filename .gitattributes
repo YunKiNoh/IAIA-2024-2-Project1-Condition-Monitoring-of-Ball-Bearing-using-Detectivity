@@ -1,3 +1,0 @@
-PPT filter=lfs diff=lfs merge=lfs -text
-Report filter=lfs diff=lfs merge=lfs -text
-Software filter=lfs diff=lfs merge=lfs -text
