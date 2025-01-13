@@ -82,5 +82,30 @@ grid on;
   <p style="margin-top: 10px;">Figure 4. Vibration Singal</p>
 </div>
 
+```
+reset(hsbearing);
+tstart = 0;
+% Plot tachometer's dataset
+figure;
+hold on;
+while hasdata(hsbearing)
+ data = read(hsbearing);
+ tach = data.tach{1};
+ t = tstart + (1:length(tach))/fs;
+ plot(t, tach);
+ tstart = t(end);
+end
+hold off;
+xlabel('Time (s), 6 seconds per day, 50 days in total');
+ylabel('RPM');
+title('Tachometer Data Over Time');
+grid on;
+```
+
+<div align="center">
+  <img width="940" alt="Tachometer" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/tach.jpg" /><br>
+  <p style="margin-top: 10px;">Figure 5. Tachometer Singal</p>
+</div>
+
 ### 2.3. Data Processing
 해당 진동 데이터는 총 50
