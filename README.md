@@ -227,7 +227,7 @@ title('Detectivity')
 Detectivity를 Health Indicator(머신러닝 학습 데이터 또는 건강지표데이터)로 활용하기 위해 Exponential Degradation Mode(EDM, 지수열화모)을 활용하였습니다. 해당 모델은 매트랩에서 제공하는 방식을 차용하였습니다.
 
 <div align="center">
-  <img width="940" alt="EDM" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/EDM.jpg" /><br>
+  <img width="340" alt="EDM" src="https://github.com/YunKiNoh/IAIA-2024-2-Project1-Condition-Monitoring-of-Ball-Bearing-using-Detectivity/blob/main/image/EDM.jpg" /><br>
   <p style="margin-top: 10px;">Figure 11. Exponential Degradation Mode(EDM) [2]</p>
 </div>
 
