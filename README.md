@@ -1,4 +1,4 @@
-# Project1: Condition Monitoring of Ball Bearing using Detectivity
+# Project1: Condition Monitoring of Ball Bearing Using Detectivity
 **Contents**: Project1 of IAIA(Industrial AI and Automation)
 
 **Author**: Yunki Noh 21800226 / Sion Seo 21800360 / Hojin Jang 22100645
